@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="coolrefreshview_pull_down_to_refresh">Pull Down to Refresh</string>
+    <string name="coolrefreshview_release_to_refresh">Release To Refresh</string>
+    <string name="coolrefreshview_refreshing">Updating...</string>
+    <string name="coolrefreshview_complete">Updated.</string>
+
+</resources>

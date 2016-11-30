@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.shizhefei.view.coolrefreshview.CoolRefreshView
+        android:id="@+id/listview_funnyRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_bg">
+
+        <ListView
+            android:id="@+id/listview_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff" />
+
+    </com.shizhefei.view.coolrefreshview.CoolRefreshView>
+</LinearLayout>

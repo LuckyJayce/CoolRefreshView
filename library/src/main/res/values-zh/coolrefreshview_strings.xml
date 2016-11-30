@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="coolrefreshview_pull_down_to_refresh">下拉刷新</string>
+    <string name="coolrefreshview_release_to_refresh">释放立即刷新</string>
+    <string name="coolrefreshview_refreshing">加载中...</string>
+    <string name="coolrefreshview_complete">更新完成.</string>
+
+</resources>
