@@ -98,10 +98,10 @@ public class DefaultHeader implements PullHeader {
         if (status == CoolRefreshView.PULL_STATUS_TOUCH_MOVE) {
             if (currentDistance < offsetToRefresh) {
                 if (!isDownArrow) {
-                    isDownArrow = false;
                     textView.setText(getResources().getString(R.string.coolrefreshview_pull_down_to_refresh));
                     imageView.clearAnimation();
                     imageView.startAnimation(mReverseFlipAnimation);
+                    isDownArrow = true;
                 }
             } else {
                 if (isDownArrow) {
