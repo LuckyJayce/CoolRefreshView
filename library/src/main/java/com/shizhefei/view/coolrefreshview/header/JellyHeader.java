@@ -39,8 +39,8 @@ import com.shizhefei.view.coolrefreshview.CoolRefreshView;
 import com.shizhefei.view.coolrefreshview.PullHeader;
 
 /**
- * Created by LuckyJayce on 2016/11/28. <br/>
- * 这个header 来源于https://github.com/imallan/JellyRefreshLayout<br/>
+ * Created by LuckyJayce on 2016/11/28.
+ * 这个header 来源于https://github.com/imallan/JellyRefreshLayout
  * 我做了部分改动
  */
 

@@ -29,8 +29,8 @@ import com.shizhefei.view.coolrefreshview.CoolRefreshView;
 import com.shizhefei.view.coolrefreshview.PullHeader;
 
 /**
- * Created by LuckyJayce on 2016/11/27.<br/>
- * <br/>
+ * Created by LuckyJayce on 2016/11/27.
+ *
  * 这个header来源于 https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
  */
 

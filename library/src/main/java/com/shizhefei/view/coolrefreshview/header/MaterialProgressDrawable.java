@@ -61,13 +61,11 @@ import android.view.animation.Transformation;
 import java.util.ArrayList;
 
 /**
- * 这个header 来源于 liaohuqiu 的android-Ultra-Pull-To-Refresh
+ * 这个header 来源于 liaohuqiu 的android-Ultra-Pull-To-Refresh,他修改于v4的MaterialProgressDrawable
  * <p>
  * Fancy progress indicator for Material theme.
  * It's taken from {@link android.support.v4.widget}.
  * I've done some slight changes.
- *
- * @hide
  */
 public class MaterialProgressDrawable extends Drawable implements Animatable {
 

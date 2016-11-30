@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 LuckyJayce
+ * Copyright (C) 2016 liaohuqiu
  * Copyright (C) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -119,7 +120,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
     }
 
     /**
-     * 静态设置全局的IPullHeaderFactory，一次配置，所有默认使用这个factory生成的PullHeader<br/>
+     * 静态设置全局的IPullHeaderFactory，一次配置，所有默认使用这个factory生成的PullHeader
      * 该代码可以放在Application onCreate
      *
      * @param factory
@@ -679,8 +680,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
 
     /**
      * {@inheritDoc}
-     * <p>
-     * <p>This version also clamps the scrolling to the bounds of our child.
+     *This version also clamps the scrolling to the bounds of our child.
      */
     @Override
     public void scrollTo(int x, int y) {

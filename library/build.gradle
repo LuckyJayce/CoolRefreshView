@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -8,7 +8,7 @@ android {
         minSdkVersion 9
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -18,9 +18,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     provided 'com.android.support:support-v4:25.0.1'
+}
+
+//上传到jcenter 执行
+//gradlew clean build bintrayUpload -PbintrayUser=用户名 -PbintrayKey=apiKey -PdryRun=false
+//添加
+//添加
+publish {
+    userOrg = 'luckyjayce'//bintray.com用户名
+    groupId = 'com.shizhefei'//jcenter上的路径
+    artifactId = 'CoolRefreshView'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'android RefreshView ,support all view'//描述，不重要
+    website = 'https://github.com/LuckyJayce/CoolRefreshView'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
