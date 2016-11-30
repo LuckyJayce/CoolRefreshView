@@ -33,7 +33,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 
-import com.shizhefei.view.coolrefreshview.header.StateHeader;
+import com.shizhefei.view.coolrefreshview.header.DefaultHeader;
 
 import static android.support.v4.widget.ViewDragHelper.INVALID_POINTER;
 
@@ -47,12 +47,12 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
     private static IPullHeaderFactory HEADER_FACTORY = new IPullHeaderFactory() {
         @Override
         public PullHeader made(Context context) {
-            return new StateHeader();
+            return new DefaultHeader();
         }
 
         @Override
         public boolean isPinContent() {
-            return true;
+            return false;
         }
     };
     private static boolean DEBUG = false;

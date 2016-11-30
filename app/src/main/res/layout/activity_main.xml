@@ -11,12 +11,12 @@
         android:id="@+id/main_moreViews_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="More Views" />
+        android:text="各种类型ContentView进行刷新" />
 
     <Button
         android:id="@+id/main_moreHeaders_button"
         android:layout_width="match_parent"
         android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
-        android:text="More Headers" />
+        android:text="各种类型的Header" />
 </LinearLayout>

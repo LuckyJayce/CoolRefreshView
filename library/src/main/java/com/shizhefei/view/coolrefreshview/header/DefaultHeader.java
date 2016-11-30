@@ -19,6 +19,7 @@ package com.shizhefei.view.coolrefreshview.header;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -34,7 +35,7 @@ import com.shizhefei.view.coolrefreshview.R;
  * Created by LuckyJayce on 2016/11/28.
  */
 
-public class StateHeader implements PullHeader {
+public class DefaultHeader implements PullHeader {
 
     private ImageView imageView;
     private TextView textView;
@@ -44,7 +45,7 @@ public class StateHeader implements PullHeader {
     private RotateAnimation mReverseFlipAnimation;
     private int mRotateAniTime = 150;
     private View headerView;
-    private int backgroundColor = 0x989898;
+    private int backgroundColor = Color.parseColor("#989898");
 
     public void setBackgroundColor(int color) {
         backgroundColor = color;
@@ -86,6 +87,7 @@ public class StateHeader implements PullHeader {
         imageView.setVisibility(View.VISIBLE);
         textView.setText(getResources().getString(R.string.coolrefreshview_pull_down_to_refresh));
         isDownArrow = true;
+        Log.d("wsx"," onPullBegin ");
     }
 
     private boolean isDownArrow = true;
@@ -94,19 +96,19 @@ public class StateHeader implements PullHeader {
     public void onPositionChange(CoolRefreshView refreshView, int status, int dy, int currentDistance) {
         int offsetToRefresh = getConfig().offsetToRefresh(refreshView, headerView);
         if (status == CoolRefreshView.PULL_STATUS_TOUCH_MOVE) {
-            if (currentDistance > offsetToRefresh) {
+            if (currentDistance < offsetToRefresh) {
                 if (!isDownArrow) {
-                    textView.setText(getResources().getString(R.string.coolrefreshview_release_to_refresh));
-                    imageView.clearAnimation();
-                    imageView.startAnimation(mFlipAnimation);
-                    isDownArrow = true;
-                }
-            } else {
-                if (isDownArrow) {
                     isDownArrow = false;
                     textView.setText(getResources().getString(R.string.coolrefreshview_pull_down_to_refresh));
                     imageView.clearAnimation();
                     imageView.startAnimation(mReverseFlipAnimation);
+                }
+            } else {
+                if (isDownArrow) {
+                    textView.setText(getResources().getString(R.string.coolrefreshview_release_to_refresh));
+                    imageView.clearAnimation();
+                    imageView.startAnimation(mFlipAnimation);
+                    isDownArrow = false;
                 }
             }
         }

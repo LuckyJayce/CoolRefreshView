@@ -10,7 +10,7 @@ import com.shizhefei.view.coolrefreshview.demo.BooksLoador;
 import com.shizhefei.view.coolrefreshview.demo.R;
 import com.shizhefei.view.coolrefreshview.demo.adapters.BooksRecyclerAdapter;
 import com.shizhefei.view.coolrefreshview.demo.events.RefreshEvent;
-import com.shizhefei.view.coolrefreshview.header.StateHeader;
+import com.shizhefei.view.coolrefreshview.header.DefaultHeader;
 
 
 /**
@@ -31,7 +31,7 @@ public class StateHeaderFragment extends LazyFragment implements RefreshEvent {
         coolRefreshView = (CoolRefreshView) findViewById(R.id.recyclerview_funnyRefreshView);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_recyclerView);
 
-        coolRefreshView.setPullHeader(new StateHeader());
+        coolRefreshView.setPullHeader(new DefaultHeader());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter = new BooksRecyclerAdapter(BooksLoador.getBooks(0)));
 
