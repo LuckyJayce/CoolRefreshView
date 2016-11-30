@@ -19,15 +19,47 @@ package com.shizhefei.view.coolrefreshview;
  * Created by LuckyJayce on 2016/11/27.
  */
 
+/**
+ * 下拉监听
+ */
 public interface OnPullListener {
 
+    /**
+     * 开始拖动
+     */
     void onPullBegin(CoolRefreshView refreshView);
 
+    /**
+     * 位置变化
+     *
+     * @param refreshView
+     * @param status          状态 /没有任何操作
+     *                        public final static byte PULL_STATUS_INIT = 1;
+     *                        //开始下拉
+     *                        public final static byte PULL_STATUS_TOUCH_MOVE = 2;
+     *                        //回到原始位置
+     *                        public final static byte PULL_STATUS_RESET = 3;
+     *                        //刷新中
+     *                        public final static byte PULL_STATUS_REFRESHING = 4;
+     *                        //刷新完成
+     *                        public final static byte PULL_STATUS_COMPLETE = 5;
+     * @param dy              下拉事件的位移
+     * @param currentDistance 当前位移的距离
+     */
     void onPositionChange(CoolRefreshView refreshView, int status, int dy, int currentDistance);
 
+    /**
+     * 刷新中
+     */
     void onRefreshing(CoolRefreshView refreshView);
 
+    /**
+     * 没有刷新的释放回去
+     */
     void onReset(CoolRefreshView refreshView, boolean pullRelease);
 
+    /**
+     * 设置刷新完成，并且释放回去
+     */
     void onPullRefreshComplete(CoolRefreshView refreshView);
 }

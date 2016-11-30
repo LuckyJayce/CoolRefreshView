@@ -19,7 +19,6 @@ package com.shizhefei.view.coolrefreshview.header;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -87,7 +86,6 @@ public class DefaultHeader implements PullHeader {
         imageView.setVisibility(View.VISIBLE);
         textView.setText(getResources().getString(R.string.coolrefreshview_pull_down_to_refresh));
         isDownArrow = true;
-        Log.d("wsx"," onPullBegin ");
     }
 
     private boolean isDownArrow = true;
