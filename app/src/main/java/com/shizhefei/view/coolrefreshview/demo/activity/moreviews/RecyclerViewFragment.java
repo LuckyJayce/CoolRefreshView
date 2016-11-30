@@ -1,7 +1,7 @@
 package com.shizhefei.view.coolrefreshview.demo.activity.moreviews;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,7 +44,7 @@ public class RecyclerViewFragment extends LazyFragment implements RefreshEvent {
 
         ViewPager viewPager = (ViewPager) headLayout.findViewById(R.id.viewPager);
         Indicator indicator = (Indicator) headLayout.findViewById(R.id.indicatorView);
-        indicator.setScrollBar(new ColorBar(getContext(), ContextCompat.getColor(getContext(), R.color.primary), DisplayUtil.dipToPix(getContext(), 3)));
+        indicator.setScrollBar(new ColorBar(getContext(), Color.WHITE, DisplayUtil.dipToPix(getContext(), 3)));
         bannerComponent = new BannerComponent(indicator, viewPager, false);
         bannerComponent.setAdapter(new BannerAdapter());
         bannerComponent.startAutoPlay();

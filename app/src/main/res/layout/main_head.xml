@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="180dp"
     android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
@@ -12,6 +12,7 @@
     <com.shizhefei.view.indicator.FixedIndicatorView
         android:id="@+id/indicatorView"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="3dp" />
 
