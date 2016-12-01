@@ -272,7 +272,26 @@ xml
         }
     };
 
-# 说明 #
+##配合MVCHelper类库使用，上滑加载更多
+配合
+https://github.com/LuckyJayce/MVCHelper   
+代码只要5行，就可以实现下拉刷新，滚动底部自动加载更多，分页加载，自动切换显示网络失败布局，暂无数据布局
+
+    CoolRefreshView coolRefreshView = (CoolRefreshView) findViewById(R.id.coolRefreshView);
+    MVCHelper<List<Book>> mvcHelper = new MVCCoolHelper<List<Book>>(coolRefreshView);
+
+    // 设置数据源
+    mvcHelper.setDataSource(new BooksDataSource());
+    // 设置适配器
+    mvcHelper.setAdapter(new BooksAdapter(this));
+
+    // 加载数据
+    mvcHelper.refresh();
+
+更多的详细使用参照 https://github.com/LuckyJayce/MVCHelper 的demo
+
+
+## 说明
 
   滑动事件的处理是参照 v4包的 SwipeRefreshLayout，从而支持了支持NestedScrollingParent,NestedScrollingChild的事件分发和避免了嵌套 ViewPager事件冲突  
 
