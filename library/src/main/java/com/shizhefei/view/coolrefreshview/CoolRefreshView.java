@@ -305,9 +305,15 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
         // If we are in the middle of consuming, a scroll, then we want to touchMove the spinner back up
         // before allowing the list to scroll
-        if (dy > 0) {
-            consumed[1] = dy;
-            touchMove(dy);
+        int offsetY = scrollerHelper.getOffsetY();
+        if (dy > 0 && offsetY < 0) {
+            int absOffsetY = Math.abs(offsetY);
+            if (dy > absOffsetY) {
+                consumed[1] = dy - absOffsetY;
+            } else {
+                consumed[1] = dy;
+            }
+            touchMove(consumed[1]);
         }
 
         // Now let our nested parent consume the leftovers
@@ -439,6 +445,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
                     return false;
                 }
                 mInitialDownY = ev.getY(pointerIndex);
+                mLastMotionY = getMotionEventY(ev, pointerIndex);
                 break;
 
             case MotionEvent.ACTION_MOVE:
@@ -498,14 +505,9 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
                 startDragging(y);
 
                 if (mIsBeingDragged) {
-                    final float ov = (y - mInitialMotionY);
-                    if (ov > 0) {
-                        float dy = mLastMotionY - y;
-                        touchMove((int) dy);
-                        mLastMotionY = y;
-                    } else {
-                        return false;
-                    }
+                    float dy = mLastMotionY - y;
+                    touchMove((int) dy);
+                    mLastMotionY = y;
                 }
                 break;
             }
@@ -680,7 +682,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
 
     /**
      * {@inheritDoc}
-     *This version also clamps the scrolling to the bounds of our child.
+     * This version also clamps the scrolling to the bounds of our child.
      */
     @Override
     public void scrollTo(int x, int y) {
