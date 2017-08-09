@@ -10,7 +10,7 @@ CoolRefreshView
 ###7.导入方式
 <1>gradle导入      
 
-    compile 'com.shizhefei:CoolRefreshView:1.0.1'
+    compile 'com.shizhefei:CoolRefreshView:1.0.2'
     由于用到了v4和recyclerview所以也要导入他们  
     compile 'com.android.support:support-v4:23.4.0'  
 
