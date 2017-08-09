@@ -194,18 +194,18 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
             if (!mRefreshing) {
                 mStatus = PULL_STATUS_REFRESHING;
                 mRefreshing = refreshing;
-                mPullHandler.onRefreshing(CoolRefreshView.this);
                 int offsetToKeepHeaderWhileLoading = mPullHandler.getConfig().offsetToKeepHeaderWhileLoading(this, mHeaderView);
                 int dy = -offsetToKeepHeaderWhileLoading - scrollerHelper.getOffsetY();
                 scrollerHelper.startScroll(scrollerHelper.getOffsetX(), scrollerHelper.getOffsetY(), 0, dy);
+                mPullHandler.onRefreshing(CoolRefreshView.this);
             }
         } else {
             if (mRefreshing) {
                 mStatus = PULL_STATUS_COMPLETE;
                 mRefreshing = refreshing;
-                mPullHandler.onPullRefreshComplete(CoolRefreshView.this);
                 int dy = -scrollerHelper.getOffsetY();
                 scrollerHelper.startScroll(scrollerHelper.getOffsetX(), scrollerHelper.getOffsetY(), 0, dy);
+                mPullHandler.onPullRefreshComplete(CoolRefreshView.this);
             }
         }
     }
