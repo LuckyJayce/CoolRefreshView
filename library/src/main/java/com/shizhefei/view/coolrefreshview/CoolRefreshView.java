@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.Scroller;
 
 import com.shizhefei.view.coolrefreshview.header.DefaultHeader;
 
@@ -196,6 +197,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
                 mRefreshing = refreshing;
                 int offsetToKeepHeaderWhileLoading = mPullHandler.getConfig().offsetToKeepHeaderWhileLoading(this, mHeaderView);
                 int dy = -offsetToKeepHeaderWhileLoading - scrollerHelper.getOffsetY();
+                scrollerHelper.abortAnimation();
                 scrollerHelper.startScroll(scrollerHelper.getOffsetX(), scrollerHelper.getOffsetY(), 0, dy);
                 mPullHandler.onRefreshing(CoolRefreshView.this);
             }
@@ -204,6 +206,7 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
                 mStatus = PULL_STATUS_COMPLETE;
                 mRefreshing = refreshing;
                 int dy = -scrollerHelper.getOffsetY();
+                scrollerHelper.abortAnimation();
                 scrollerHelper.startScroll(scrollerHelper.getOffsetX(), scrollerHelper.getOffsetY(), 0, dy);
                 mPullHandler.onPullRefreshComplete(CoolRefreshView.this);
             }
@@ -940,10 +943,10 @@ public class CoolRefreshView extends ViewGroup implements NestedScrollingParent,
 
     private abstract class ScrollerHelper {
 
-        protected final ScrollerCompat mScroller;
+        protected final Scroller mScroller;
 
         public ScrollerHelper() {
-            mScroller = ScrollerCompat.create(getContext(), null);
+            mScroller = new Scroller(getContext(), null);
         }
 
         public abstract int getOffsetX();
